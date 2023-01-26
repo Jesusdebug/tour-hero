@@ -1,0 +1,25 @@
+<!-- <p>{{hero}}</p> -->
+<h2>Hero details</h2>
+<div><span>id:</span>{{hero.id}}</div>
+<div><span>Name:</span>{{hero.name | uppercase}}</div>
+<h1>implementacion de tow-way binding</h1>
+<div>
+    <label for="name"> Hero name</label>
+    <input id="name" placeholder="name" [(ngModel)]="hero.name">
+</div>
+<h4>Recorriendo una lista</h4>
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <li *ngFor="let hero1 of heroes">
+        <button 
+        [class.selected]="hero1===selectedHero"
+        type="button"
+         (click)="onSelect(hero1)">
+            <span class="badge">{{hero1.id}}</span>
+            <span class="name">{{hero1.name}}</span>
+        </button>
+    </li>
+</ul>
+<br/>
+<br/>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
